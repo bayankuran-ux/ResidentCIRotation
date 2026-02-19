@@ -121,8 +121,7 @@ def get_reference_ranges(analyzer_name):
 
     # FILL IN THE QUERY TO FETCH REFERENCE RANGES BASED ON THE ANALYZER NAME
     query = f"""
-    
-    """
+    Select rr_lower_bound, rr_upper_bound from analyzers where name = '{analyzer_name}'"""
 
     with engine.connect() as conn:
         result = conn.execute(text(query)).fetchone()
